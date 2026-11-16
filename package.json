@@ -1,0 +1,19 @@
+{
+  "name": "megashoppee",
+  "private": true,
+  "version": "0.2.0",
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel --if-present dev",
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "db:generate": "pnpm --filter @megashoppee/api prisma:generate",
+    "db:push": "pnpm --filter @megashoppee/api prisma:push",
+    "db:seed": "pnpm --filter @megashoppee/api prisma:seed",
+    "db:studio": "pnpm --filter @megashoppee/api prisma:studio"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "prettier": "^3.4.2"
+  }
+}
