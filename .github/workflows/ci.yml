@@ -14,5 +14,8 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm db:generate
+        env:
+          DATABASE_URL: mysql://megashoppee_app:ci@127.0.0.1:3306/megashoppee
       - run: pnpm build
