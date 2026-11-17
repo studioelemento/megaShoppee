@@ -1,6 +1,15 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000/api/v1';
-export type Application = { id: string; name: string; storeSlug: string; type: 'INDIVIDUAL'|'BUSINESS'; mobile: string; email?: string; gstRegistered: boolean; gstin?: string };
-export async function submitApplication(data: Application) {
+export type ApplicationInput = {
+  name: string;
+  storeSlug: string;
+  type: 'INDIVIDUAL' | 'BUSINESS';
+  mobile: string;
+  email?: string;
+  gstRegistered: boolean;
+  gstin?: string;
+};
+export type Application = ApplicationInput & { id: string };
+export async function submitApplication(data: ApplicationInput) {
   const response = await fetch(`${API_BASE}/vendor-applications`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data),
   });
